@@ -5,6 +5,8 @@ import { COMMANDS } from './utils/constants.js';
 import { changeDirectory } from './modules/changeDirectory.js';
 import { list } from './modules/ls.js';
 import { parseArgs } from './utils/parseArgs.js';
+import { readAndPrint } from './modules/readAndPrint.js';
+import { createNewFile } from './modules/createNewFile.js';
 
 process.stdin.setEncoding('utf-8');
 
@@ -59,6 +61,12 @@ process.stdin.on('data', async (chunk) => {
 			case COMMANDS.LIST_OF_FILES: 
 				const targetDirPath = cwd();
 				list(targetDirPath);
+				break;
+			case COMMANDS.READ_AND_PRINT:
+				readAndPrint(commandContent);
+				break;
+			case COMMANDS.CREATE_NEW_FILE:
+				createNewFile(commandContent);
 				break;
 			default:
 				console.log('Invalid entry, please try again \n');
