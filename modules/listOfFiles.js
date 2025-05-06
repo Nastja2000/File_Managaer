@@ -1,9 +1,8 @@
 import fs from 'fs/promises';
-import { cwd } from 'node:process';
 
 const formatList = (list) => {
-	console.log(list[1].name, list[1].isFile(), list[1].isDirectory())
 	let folders = list.filter((item) => item.isDirectory());
+
 	if (folders.length !== 0){
 		folders = folders
 					.map((item) => {
@@ -38,12 +37,11 @@ const list = async (targerDirPath) => {
     try {
         await fs.access(targerDirPath, fs.constants.F_OK);
     } catch (accessError) {
-        throw new Error('Target path is not available');
+        throw new Error('Target path is not available \n\n');
     }
 
     try {
         const listOfFiles = await fs.readdir(targerDirPath, {withFileTypes: true});
-		console.log(listOfFiles);
         const resultList = formatList(listOfFiles);
 
 		console.table(resultList);

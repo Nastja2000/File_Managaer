@@ -14,8 +14,8 @@ const createNewFile = async (newFileName) => {
     
 	try {
 		await fs.writeFile(filePath, '');
-	} catch (error) {
-		console.log(error);
+	} catch (createError) {
+		console.log(createError.message);
 	}
     
 };

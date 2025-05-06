@@ -15,3 +15,11 @@ export const COMMANDS = Object.freeze({
 	COMPRESS_FILE: 'compress',
 	DECOMPRESS_FILE: 'decompress'
 });
+
+export const OS_ARGUMENTS = Object.freeze({
+	HOMEDIR: '--homedir',
+	USERNAME: '--username',
+	EOL: '--EOL',
+	CPUS: '--cpus',
+	ARCHITECTURE: '--architecture'
+});
